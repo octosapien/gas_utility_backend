@@ -12,3 +12,4 @@ djangorestframework
 django-cors-headers
 django-jazzmin
 dj-database-url
+python-dotenv
