@@ -137,7 +137,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 CORS_ALLOWED_ORIGINS = [ 
     "http://localhost:3000", 
-    "http://localhost:5173"  # Ensure this is always included
+    "http://localhost:5173",  # Ensure this is always included
+    "https://gas-utility-frontend.onrender.com",
 ] 
 CORS_ALLOW_ALL_ORIGINS = False  # (Make sure this is NOT True)
   # Allow cookies/authenticated requests
