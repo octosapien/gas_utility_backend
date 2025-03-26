@@ -11,7 +11,8 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 load_dotenv()
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1,gas-utility-backend.onrender.com").split(",")
+
 
 INSTALLED_APPS = [
     "django.contrib.admin",
