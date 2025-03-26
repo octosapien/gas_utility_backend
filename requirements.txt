@@ -1,0 +1,13 @@
+# Common requirements that project needs in every environment 
+
+Django==5.1.7
+
+
+
+redis
+django-redis
+celery
+django-celery-results
+djangorestframework
+django-cors-headers
+django-jazzmin
