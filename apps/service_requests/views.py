@@ -64,12 +64,25 @@ def create_request(request):
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def get_all_requests(request):
-    """Admins can fetch all service requests."""
+    """Admins can fetch all service requests with user details."""
     if request.user.role != "ADMIN":
         return Response({"error": "Unauthorized"}, status=403)
 
-    requests = ServiceRequest.objects.all()
-    return Response(ServiceRequestSerializer(requests, many=True).data)
+    requests = ServiceRequest.objects.select_related("user").all()
+    response_data = []
+
+    for req in requests:
+        request_data = ServiceRequestSerializer(req).data
+        user_data = UserSerializer(req.user).data
+        user_data.pop("password", None)  # Ensure password is not included
+
+        response_data.append({
+            "user": user_data,
+            "request": request_data
+        })
+        print(response_data)
+
+    return Response(response_data)
 
 
 @api_view(["PATCH"])
